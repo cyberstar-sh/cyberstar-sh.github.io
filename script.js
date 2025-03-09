@@ -1,3 +1,3 @@
 document.getElementById('alertButton').addEventListener('click', function() {
-    alert('Button was clicked!');
+    alert('bruh button was clicked!');
 });
