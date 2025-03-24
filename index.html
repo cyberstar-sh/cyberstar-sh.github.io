@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Response Generator</title>
+    <title>AI Chatbot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>AI Response Generator</h1>
-        <textarea id="userInput" placeholder="Ask something..."></textarea>
-        <button id="generateBtn">Generate Response</button>
-        <div id="output"></div>
+    <div class="chat-container">
+        <h1>Chat with AI</h1>
+        <div id="chatOutput" class="chat-output"></div>
+        <div class="input-container">
+            <textarea id="userInput" placeholder="Type your message..." rows="2"></textarea>
+            <button id="generateBtn">Send</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
