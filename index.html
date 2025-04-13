@@ -1,70 +1,109 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Chat with Chan</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-      }
-      .chatbox {
-        height: 400px;
-        overflow: auto;
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
-      .message {
-        margin-bottom: 10px;
-      }
-      .user {
-        color: blue;
-      }
-      .bot {
-        color: green;
-      }
-      input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Chat with Chan</h1>
-    <div class="chatbox" id="chatbox"></div>
-    <input type="text" id="message" placeholder="Type your message here...">
-    <button id="send">Send</button>
-    <script>
-      var chatbox = document.getElementById("chatbox");
-      var message = document.getElementById("message");
-      var send = document.getElementById("send");
-      
-      send.addEventListener("click", function() {
-        var userMessage = message.value;
-        var userDiv = document.createElement("div");
-        userDiv.className = "message user";
-        userDiv.innerHTML = "<strong>You:</strong> " + userMessage;
-        chatbox.appendChild(userDiv);
-        
-        message.value = "";
-        
-        fetch("/get_response?message=" + encodeURIComponent(userMessage))
-          .then(function(response) {
-            return response.text();
-          })
-          .then(function(botMessage
-          ) {
-            var botDiv = document.createElement("div");
-            botDiv.className = "message bot";
-            botDiv.innerHTML = "<strong>Chan:</strong> " + botMessage;
-            chatbox.appendChild(botDiv);
-            
-            chatbox.scrollTop = chatbox.scrollHeight;
-        });
-        });
-    </script>
+<!-- {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arturo Presa - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 
-    </body>
-</html>
+
+<body>
+  <div class="resume-wrapper">
+    <div class="name">Arturo Presa</div>
+    <div class="contact-info">
+      <div class="pill">786-270-8259</div>
+      <div class="pill">arturo.presa002@gmail.com</div>
+      <div class="pill">Miami, FL 33172</div>
+    </div>
+
+    <div class="section">
+      <h2>PROFESSIONAL SUMMARY</h2>
+      <p>
+        Accomplished Data Analyst at Healthcare Retroactive Audits, Inc., adept at leveraging SQL and machine
+        learning to recover over $1 million in lost revenue. Skilled in data visualization with Power BI and effective
+        collaboration with cross-functional teams.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>SKILLS</h2>
+      <div class="skills">
+        <div class="skill-chip">Pandas</div>
+        <div class="skill-chip">NumPy</div>
+        <div class="skill-chip">Matplotlib</div>
+        <div class="skill-chip">Tableau</div>
+        <div class="skill-chip">Power BI</div>
+        <div class="skill-chip">Scikit-learn</div>
+        <div class="skill-chip">Linear Regression</div>
+        <div class="skill-chip">Decision Trees</div>
+        <div class="skill-chip">Random Forests</div>
+        <div class="skill-chip">ChatGPT</div>
+        <div class="skill-chip">Copilot</div>
+        <div class="skill-chip">Gemini</div>
+        <div class="skill-chip">SQL</div>
+        <div class="skill-chip">Python</div>
+        <div class="skill-chip">SQL Server</div>
+        <div class="skill-chip">MySQL Workbench</div>
+        <div class="skill-chip">PostgreSQL</div>
+        <div class="skill-chip">Oracle</div>
+        <div class="skill-chip">Query Optimization</div>
+        <div class="skill-chip">PowerPoint</div>
+        <div class="skill-chip">Office 365</div>
+        <div class="skill-chip">Microsoft Azure</div>
+        <div class="skill-chip">Visual Studio Code</div>
+        <div class="skill-chip">Web Scraping</div>
+        <div class="skill-chip">Git/GitHub</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>EXPERIENCE</h2>
+      <div class="job">
+        <div class="job-title">DATA ANALYST</div>
+        <div class="job-company">Healthcare Retroactive Audits, Inc. – Jan 2023 – Jan 2024</div>
+        <ul>
+          <li>Recovered $1M+ in lost revenue through SQL-based data analysis</li>
+          <li>Developed machine learning models to predict Medicare and Medicaid costs</li>
+          <li>Translated business rules into efficient SQL scripts using ChatGPT</li>
+          <li>Created pivot tables and dashboards in Power BI for executive insights</li>
+          <li>Collaborated across departments to ensure audit process accuracy</li>
+          <li>Developed ETL pipelines using SQL Server Integration Services (SSIS)</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-title">IT/SOFTWARE ANALYST</div>
+        <div class="job-company">Blackmore Partners Inc – Jan 2022 – Jan 2023</div>
+        <ul>
+          <li>Completed 36+ projects in data research and automation</li>
+          <li>Built dashboards and data visualizations to support decision making</li>
+          <li>Improved code structure and documentation for scalability</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-title">TUTOR</div>
+        <div class="job-company">Course Hero – Jan 2021 – Jan 2022</div>
+        <ul>
+          <li>Provided 42+ tutorials on SQL, Python, and database management</li>
+          <li>Created detailed examples and explanations for complex queries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>EDUCATION</h2>
+      <p><strong>Bachelor's Degree (B.A.) in Computer Science</strong> – Florida International University, Mar 2025</p>
+      <p><strong>Associate in Arts (A.A.) in Computer Science</strong> – Miami Dade College, Jan 2019</p>
+    </div>
+
+    <div class="section">
+      <h2>BOOTCAMP CERTIFICATIONS</h2>
+      <ul>
+        <li>Data Scientist – Python, SQL, Scikit-learn, Web scraping, Git, Azure</li>
+        <li>Machine Learning for Business – Predictive modeling & data storytelling</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html> -->
